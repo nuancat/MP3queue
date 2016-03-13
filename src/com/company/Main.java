@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-	// write your code here
+    public static void main(String[] args) throws IOException, NullPointerException {
+        // write your code here
         ArrayList<String>files = new ArrayList<>();
         File folder = new File("C:/test/");
         File[] listOfFiles = folder.listFiles();
@@ -20,6 +20,7 @@ public class Main {
                files.add(file.getPath());
             }
         }
+
         File f = File.createTempFile("Mus",".mp3");
         FileOutputStream fos = new FileOutputStream(f);
         for (String x:files){
