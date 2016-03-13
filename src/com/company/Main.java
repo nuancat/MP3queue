@@ -13,15 +13,15 @@ public class Main {
     public static void main(String[] args) throws IOException, NullPointerException {
         // write your code here
         ArrayList<String>files = new ArrayList<>();
-        File folder = new File("C:/test/");
+        File folder = new File(args[0]);
         File[] listOfFiles = folder.listFiles();
         for (File file : listOfFiles) {
-            if (file.isFile()) {
+            if (file.isFile() && file.getName().endsWith(".mp3")) {
                files.add(file.getPath());
             }
         }
 
-        File f = File.createTempFile("Mus",".mp3");
+        File f = new File(args[0] + "track.mp3");
         FileOutputStream fos = new FileOutputStream(f);
         for (String x:files){
             FileInputStream fis = new FileInputStream(x);
